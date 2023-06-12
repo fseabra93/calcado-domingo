@@ -20,6 +20,9 @@ using namespace std;
 
   }
 
+    void Empresa::calcularSalario(){}
+    void Empresa::calcularRecisao(){};
+
   Data Empresa::getHoje(){
     return this->hoje;
   }

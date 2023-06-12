@@ -63,7 +63,8 @@ class Empresa : public Pessoa, Funcionario {
   //calculaTodoOsSalarios();
   //calcularRecisao(int matricula, Data desligamento);
   
-  
+  virtual void calcularSalario() = 0;
+  virtual void calcularRecisao() = 0;
 
 
 };
