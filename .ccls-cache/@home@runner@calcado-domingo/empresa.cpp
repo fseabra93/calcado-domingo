@@ -20,6 +20,9 @@ using namespace std;
 
   }
 
+    void Empresa::calcularSalario(){}
+    void Empresa::calcularRecisao(){};
+
   Data Empresa::getHoje(){
     return this->hoje;
   }
@@ -113,7 +116,7 @@ void Empresa::carregaFuncoes(Empresa *empr){
               carregarEmpresa(empr);
             }
             if (elemento  == "carregarAsg()"){
-              carregarAsg();
+              carregarAsg(empr);
             }
             if (elemento  == "carregarVendedor()"){
               carregarVendedor();
@@ -123,7 +126,7 @@ void Empresa::carregaFuncoes(Empresa *empr){
             }
             if (elemento  == "carregaDono()"){
               carregaDono();
-            }                      
+            }
         }    
 
 }
@@ -154,15 +157,15 @@ void Empresa::carregarEmpresa(Empresa *em){
       cout << "erro: " << e.what() << "empresa.txt"<< endl;
     }
 
-    em->setNomeEmpresa(vetor_empresa[0]);
-    em->setCnpj(vetor_empresa[1]);
-    em->setFaturamento(stof(vetor_empresa[2]));
+   // em->setNomeEmpresa(vetor_empresa[0]);
+   // em->setCnpj(vetor_empresa[1]);
+   // em->setFaturamento(stof(vetor_empresa[2]));
 
   //cout << "rodou carregarEmpresa()"<< endl;
 
 }
 
-void Empresa::carregarAsg(){
+void Empresa::carregarAsg(Empresa *em){
   string linha;
   vector<string>vetor_asg;
   fstream arquivoCarregarAsg;
@@ -215,7 +218,9 @@ void Empresa::carregarAsg(){
   
     }
    // Empresa *empresa;
-  //  empresa->setAsgs(temp);
+
+    
+    //em->setAsgs(temp);
 
   
 
@@ -390,7 +395,12 @@ void Empresa::carregaDono(){
     dono.setEnderecoPessoal(vetor_dono[4], vetor_dono[5], vetor_dono[6], vetor_dono[7], stoi(vetor_dono[8]));
     dono.setDataNascimento(stoi(vetor_dono[9]), stoi(vetor_dono[10]), stoi(vetor_dono[11]));
 
-  //cout << "rodou carregarDono()" << endl;
+  imprimeDono(dono);
 
+}
+
+void Empresa::imprimeDono(Pessoa p){
+  cout << "\nDono da Empresa: \n" << p.getNome() << ", CPF: " <<p.getCpf() << ", nasceu no dia "<< p.getDataNascimento().dia << "/"<< p.getDataNascimento().mes << "/"<<p.getDataNascimento().ano << ", é "<<p.getEstadoCivil() << ", tem " << p.getQtdFilhos() << " filhos e reside em "<< p.getEnderecoPessoal().cidade << ", na rua " << p.getEnderecoPessoal().cep << ", " << p.getEnderecoPessoal().numero << ", " << p.getEnderecoPessoal().rua << ", CEP: "<< p.getEnderecoPessoal().bairro << ".\n";
+    
 }
 

@@ -47,11 +47,12 @@ class Empresa : public Pessoa, Funcionario {
 
   void carregaFuncoes(Empresa *empr);
   void carregarEmpresa(Empresa *em);
-  void carregarAsg();
+  void carregarAsg(Empresa *em);
   void carregarVendedor();
   void carregarGerente();
   void carregaDono();
-  void imprimeAsgs(); 
+  void imprimeAsgs();
+  void imprimeDono(Pessoa p);
   //void imprimeVendedores();
   //void imprimeGerentes();
 
@@ -63,7 +64,8 @@ class Empresa : public Pessoa, Funcionario {
   //calculaTodoOsSalarios();
   //calcularRecisao(int matricula, Data desligamento);
   
-  
+  virtual void calcularSalario() = 0;
+  virtual void calcularRecisao() = 0;
 
 
 };

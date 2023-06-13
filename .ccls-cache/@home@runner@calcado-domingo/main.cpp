@@ -7,10 +7,11 @@
 
 using namespace std;
 
-int main(int argc, char *argv[ ] ) {
+int main(/*int argc, char *argv[ ]*/ ) {
 
   //pegar a data de hoje do argv//////////////////
-  string hoje = argv[1];
+  //string hoje = argv[1];
+  string hoje = {"12/06/2023"};
 
   char dia[2];
   char mes[2];
@@ -26,6 +27,8 @@ int main(int argc, char *argv[ ] ) {
   Empresa *atacadoDosCalcados;
   atacadoDosCalcados->setHoje(h_ano, h_mes, h_dia);
   atacadoDosCalcados->carregaFuncoes(atacadoDosCalcados);
+  
+  
 
 
   

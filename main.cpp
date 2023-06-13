@@ -26,8 +26,9 @@ int main(/*int argc, char *argv[ ]*/ ) {
 
   Empresa *atacadoDosCalcados;
   atacadoDosCalcados->setHoje(h_ano, h_mes, h_dia);
-  //atacadoDosCalcados->carregaFuncoes(atacadoDosCalcados);
-  atacadoDosCalcados->carregarEmpresa(atacadoDosCalcados);
+  atacadoDosCalcados->carregaFuncoes(atacadoDosCalcados);
+  
+  
 
 
   
