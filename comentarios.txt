@@ -1,0 +1,11 @@
+Aluno: Flávio Roberto Guerra Seabra
+
+1. Como o código foi feito no REPLIT, para poder rodar pegando a data com ARGV eu tenho que mandar rodar normalmente clicando no RUN para o código compilar, então depois da mensagem de erro, rodo o código normalmente digitando na linha de comando: ./main 13/06/2023
+
+2. O código imprime em um arquivo que é gerado durante a execução chamado relatorio_final.txt
+
+3. Como não consegui fazer funcionar os gets da classe Funcionario, não consegui executar as funções IMPRIME completamente porque faltaram alguns dados, e também por isso não foi possível rodar as funções que dependiam de busca em matrículas e salários, mas os códigos das funções calcularSalario() e calcularRecisao() foram escritos nas suas respectivas classes ASG, Vendedor e Gerente.
+
+
+
+Submissão da tarefa realizada com sucesso. Comprovante de submissão Nº 2888825.

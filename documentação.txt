@@ -1,0 +1,16 @@
+Comentários no sistema Javadoc
+
+Baixar Doxygen
+
+abrir terminal na pasta
+
+digita doxygen -v para ver a versão
+
+doxygen -g   :gera o arquivo de configuração "Doxyfile". Pode ser dado outro nome
+
+
+executa:
+doxygen Nomedoarquivo
+
+gera uma pasta HTML
+clica em index.html e abre com um navegador

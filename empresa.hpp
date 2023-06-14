@@ -45,27 +45,21 @@ class Empresa : public Pessoa, Funcionario {
   vector<Gerente> getGerentes();
   void setGerentes(vector<Gerente>gerentes);
 
-  void carregaFuncoes(Empresa *empr);
-  void carregarEmpresa(Empresa *em);
-  void carregarAsg(Empresa *em);
+  void carregaFuncoes();
+  void carregarEmpresa();
+  void carregarAsg();
   void carregarVendedor();
   void carregarGerente();
   void carregaDono();
   void imprimeAsgs();
   void imprimeDono(Pessoa p);
-  //void imprimeVendedores();
-  //void imprimeGerentes();
+  void imprimeVendedores();
+  void imprimeGerentes();
 
-  
-  
-  //imprimeDono();
   //buscaFuncionario(int matricula);
   //calculaSalarioFuncionario(int matricula);
   //calculaTodoOsSalarios();
   //calcularRecisao(int matricula, Data desligamento);
-  
-  virtual void calcularSalario() = 0;
-  virtual void calcularRecisao() = 0;
 
 
 };

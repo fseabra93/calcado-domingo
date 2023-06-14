@@ -20,8 +20,6 @@ using namespace std;
 
   }
 
-    void Empresa::calcularSalario(){}
-    void Empresa::calcularRecisao(){};
 
   Data Empresa::getHoje(){
     return this->hoje;
@@ -90,7 +88,7 @@ using namespace std;
   }
   
 
-void Empresa::carregaFuncoes(Empresa *empr){
+void Empresa::carregaFuncoes(){
     string linha;
     vector<string> vetor_func;
     fstream arquivoCarregarFunc;
@@ -113,10 +111,10 @@ void Empresa::carregaFuncoes(Empresa *empr){
 
         for (auto elemento : vetor_func) {
             if (elemento  == "carregarEmpresa()"){
-              carregarEmpresa(empr);
+              carregarEmpresa();
             }
             if (elemento  == "carregarAsg()"){
-              carregarAsg(empr);
+              carregarAsg();
             }
             if (elemento  == "carregarVendedor()"){
               carregarVendedor();
@@ -127,13 +125,21 @@ void Empresa::carregaFuncoes(Empresa *empr){
             if (elemento  == "carregaDono()"){
               carregaDono();
             }
+            if (elemento  == "imprimeAsgs()"){
+              imprimeAsgs();
+            }
+            if (elemento  == "imprimeVendedores()"){
+              imprimeVendedores();
+            }
+            if (elemento  == "imprimeGerentes()"){
+              imprimeGerentes();
+            }          
         }    
 
 }
 
 
-void Empresa::carregarEmpresa(Empresa *em){
-  
+void Empresa::carregarEmpresa(){
   
   string linha;
   vector<string> vetor_empresa;
@@ -157,15 +163,15 @@ void Empresa::carregarEmpresa(Empresa *em){
       cout << "erro: " << e.what() << "empresa.txt"<< endl;
     }
 
-   // em->setNomeEmpresa(vetor_empresa[0]);
-   // em->setCnpj(vetor_empresa[1]);
-   // em->setFaturamento(stof(vetor_empresa[2]));
 
-  //cout << "rodou carregarEmpresa()"<< endl;
+   setNomeEmpresa(vetor_empresa[0]);
+   setCnpj(vetor_empresa[1]);
+   setFaturamento(stof(vetor_empresa[2]));
 
 }
 
-void Empresa::carregarAsg(Empresa *em){
+
+void Empresa::carregarAsg(){
   string linha;
   vector<string>vetor_asg;
   fstream arquivoCarregarAsg;
@@ -212,46 +218,35 @@ void Empresa::carregarAsg(Empresa *em){
       Pessoa pessoa (nome, cpf, anonasc, mesnasc, dianasc, cidade, bairro, cep, rua, numero, est_civil, filhos);
       Asg asg(pessoa, matricula, salario, adicional, anoingr, mesingr, diaingr);
 
-      temp.push_back(asg);
-
-   
-  
+      temp.push_back(asg); 
     }
-   // Empresa *empresa;
-
     
-    //em->setAsgs(temp);
-
-  
-
+    setAsgs(temp);
 }
-/*
+
 void Empresa::imprimeAsgs(){
 
   fstream arquivo;
-  arquivo.open("relatorio2.txt", ios::out | ios::app);
+  arquivo.open("relatorio_final.txt", ios::out | ios::app);
 
-  arquivo << "######### Relatório Financeiro ########\n\nCargo: ASG" << endl;
+  arquivo << "\n######### Relatório Financeiro ########\nCargo: ASG\n" << endl;
 
   float somaSalario = 0;
 
     for (int i = 0; i < asgs.size(); i++) {
-        cout << "Nome: " << asgs[i].getPessoa().getNome() << endl;
-        cout << "CPF: " << asgs[i].getPessoa().getCpf() << endl;
-        cout << "Qtde de Filhos: " << asgs[i].getPessoa().getQtdFilhos() << endl;
-        cout << "Estado Civil: " << asgs[i].getPessoa().getEstadoCivil() << endl;
-        cout << "Endereço: Rua " << asgs[i].getPessoa().getEnderecoPessoal().rua << ", " << asgs[i].getPessoa().getEnderecoPessoal().numero << ", " << asgs[i].getPessoa().getEnderecoPessoal().bairro << ", " << asgs[i].getPessoa().getEnderecoPessoal().cidade <<  ", CEP: " << asgs[i].getPessoa().getEnderecoPessoal().cep << endl;
-        cout << "DN: " << asgs[i].getPessoa().getDataNascimento().dia<< "/" << asgs[i].getPessoa().getDataNascimento().mes << "/" << asgs[i].getPessoa().getDataNascimento().ano << endl;
-        //cout << "Matrícula: " << asgs[i].getMatricula() << endl;
-        //cout << "Na empresa desde: " << asgs[i].getIngressoEmpresa().dia << "/" << asgs[i].getIngressoEmpresa().mes << "/" << asgs[i].getIngressoEmpresa().ano << endl;
-        //cout << "Salario:" << asgs[i].calcularSalario() << endl;
+        arquivo << "Nome: " << asgs[i].getPessoa().getNome() << endl;
+        arquivo << "CPF: " << asgs[i].getPessoa().getCpf() << endl;
+        arquivo << "Qtde de Filhos: " << asgs[i].getPessoa().getQtdFilhos() << endl;
+        arquivo << "Estado Civil: " << asgs[i].getPessoa().getEstadoCivil() << endl;
+        arquivo << "Endereço: Rua " << asgs[i].getPessoa().getEnderecoPessoal().cep << ", " << asgs[i].getPessoa().getEnderecoPessoal().numero << ", " << asgs[i].getPessoa().getEnderecoPessoal().bairro << ", " << asgs[i].getPessoa().getEnderecoPessoal().cidade <<  ", CEP: " << asgs[i].getPessoa().getEnderecoPessoal().rua << endl;
+        arquivo << "DN: " << asgs[i].getPessoa().getDataNascimento().dia<< "/" << asgs[i].getPessoa().getDataNascimento().mes << "/" << asgs[i].getPessoa().getDataNascimento().ano << endl;
+
+    arquivo << endl;
         
     }
-    //arquivo << "Total ASG: " << somaSalario << endl << endl;
-    //somaRH[0] = somaSalario;
 
   arquivo.close();
-}*/
+}
 
 
 void Empresa::carregarVendedor(){
@@ -305,10 +300,37 @@ void Empresa::carregarVendedor(){
         temp.push_back(vendedor);
       
     }
-  
-    //Empresa *empresa;
-    //empresa->setVendedores(temp);
+    setVendedores(temp);
     
+}
+
+void Empresa::imprimeVendedores(){
+
+  fstream arquivo;
+  arquivo.open("relatorio_final.txt", ios::out | ios::app);
+
+  arquivo << "\n######### Relatório Financeiro ########\nCargo: Vendedor\n" << endl;
+
+  float somaSalario = 0;
+
+    for (int i = 0; i < vendedores.size(); i++) {
+        arquivo << "Nome: " << vendedores[i].getPessoa().getNome() << endl;
+        arquivo << "CPF: " << vendedores[i].getPessoa().getCpf() << endl;
+        arquivo << "Qtde de Filhos: " << vendedores[i].getPessoa().getQtdFilhos() << endl;
+        arquivo << "Estado Civil: " << vendedores[i].getPessoa().getEstadoCivil() << endl;
+        arquivo << "Endereço: Rua " << vendedores[i].getPessoa().getEnderecoPessoal().cep << ", " << vendedores[i].getPessoa().getEnderecoPessoal().numero << ", " << vendedores[i].getPessoa().getEnderecoPessoal().bairro << ", " << vendedores[i].getPessoa().getEnderecoPessoal().cidade <<  ", CEP: " << vendedores[i].getPessoa().getEnderecoPessoal().rua << endl;
+        arquivo << "DN: " << vendedores[i].getPessoa().getDataNascimento().dia<< "/" << vendedores[i].getPessoa().getDataNascimento().mes << "/" << vendedores[i].getPessoa().getDataNascimento().ano << endl;
+//arquivo << "Matrícula: " << vendedores[i].getPessoa().getMatricula() << endl;
+        //arquivo << "Na empresa desde: " << vendedores[i].getIngressoEmpresa().dia << "/" << vendedores[i].getIngressoEmpresa().mes << "/" << vendedores[i].getIngressoEmpresa().ano << endl;
+        //arquivo << "Salario:" << vendedores[i].calcularSalario() << endl;
+
+    arquivo << endl;
+        
+    }
+    //arquivo << "Total ASG: " << somaSalario << endl << endl;
+    //somaRH[0] = somaSalario;
+
+  arquivo.close();
 }
 
 void Empresa::carregarGerente(){
@@ -360,8 +382,37 @@ void Empresa::carregarGerente(){
 
     temp.push_back(gerente);
 
-  //cout << "carregou gerente\n";
+  setGerentes(temp);
 
+}
+
+void Empresa::imprimeGerentes(){
+
+  fstream arquivo;
+  arquivo.open("relatorio_final.txt", ios::out | ios::app);
+
+  arquivo << "\n######### Relatório Financeiro ########\nCargo: Gerente\n" << endl;
+
+  float somaSalario = 0;
+
+    for (int i = 0; i < gerentes.size(); i++) {
+        arquivo << "Nome: " << gerentes[i].getPessoa().getNome() << endl;
+        arquivo << "CPF: " << gerentes[i].getPessoa().getCpf() << endl;
+        arquivo << "Qtde de Filhos: " << gerentes[i].getPessoa().getQtdFilhos() << endl;
+        arquivo << "Estado Civil: " << gerentes[i].getPessoa().getEstadoCivil() << endl;
+        arquivo << "Endereço: Rua " << gerentes[i].getPessoa().getEnderecoPessoal().cep << ", " << gerentes[i].getPessoa().getEnderecoPessoal().numero << ", " << gerentes[i].getPessoa().getEnderecoPessoal().bairro << ", " << gerentes[i].getPessoa().getEnderecoPessoal().cidade <<  ", CEP: " << gerentes[i].getPessoa().getEnderecoPessoal().rua << endl;
+        arquivo << "DN: " << gerentes[i].getPessoa().getDataNascimento().dia<< "/" << gerentes[i].getPessoa().getDataNascimento().mes << "/" << gerentes[i].getPessoa().getDataNascimento().ano << endl;
+//arquivo << "Matrícula: " << gerentes[i].getPessoa().getMatricula() << endl;
+        //arquivo << "Na empresa desde: " << gerentes[i].getIngressoEmpresa().dia << "/" << gerentes[i].getIngressoEmpresa().mes << "/" << gerentes[i].getIngressoEmpresa().ano << endl;
+        //arquivo << "Salario:" << gerentes[i].calcularSalario() << endl;
+
+    cout << endl;
+        
+    }
+    //arquivo << "Total Gerentes: " << somaSalario << endl << endl;
+    //somaRH[0] = somaSalario;
+
+  arquivo.close();
 }
 
 
@@ -400,7 +451,14 @@ void Empresa::carregaDono(){
 }
 
 void Empresa::imprimeDono(Pessoa p){
-  cout << "\nDono da Empresa: \n" << p.getNome() << ", CPF: " <<p.getCpf() << ", nasceu no dia "<< p.getDataNascimento().dia << "/"<< p.getDataNascimento().mes << "/"<<p.getDataNascimento().ano << ", é "<<p.getEstadoCivil() << ", tem " << p.getQtdFilhos() << " filhos e reside em "<< p.getEnderecoPessoal().cidade << ", na rua " << p.getEnderecoPessoal().cep << ", " << p.getEnderecoPessoal().numero << ", " << p.getEnderecoPessoal().rua << ", CEP: "<< p.getEnderecoPessoal().bairro << ".\n";
+  fstream arquivo;
+  arquivo.open("relatorio_final.txt", ios::out | ios::app);
+
+  arquivo << "######### Dados do Dono da Empresa ########\n\n" << endl;
+
+    arquivo << p.getNome() << ", CPF: " <<p.getCpf() << ", nasceu no dia "<< p.getDataNascimento().dia << "/"<< p.getDataNascimento().mes << "/"<<p.getDataNascimento().ano << ", é "<<p.getEstadoCivil() << ", tem " << p.getQtdFilhos() << " filhos e reside em "<< p.getEnderecoPessoal().cidade << ", na rua " << p.getEnderecoPessoal().cep << ", " << p.getEnderecoPessoal().numero << ", " << p.getEnderecoPessoal().rua << ", CEP: "<< p.getEnderecoPessoal().bairro << ".\n";
+
+  arquivo.close();
     
 }
 
