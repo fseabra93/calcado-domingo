@@ -5,11 +5,19 @@
 #include <string>
 using namespace std;
 
+/**
+* @struct: Struct Data
+*/
+  
 typedef struct {
     int ano;
     int mes;
     int dia;
 } Data;
+
+/**
+* @struct: Struct Endereço
+*/
 
 typedef struct {
     std::string cidade;

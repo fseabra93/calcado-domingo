@@ -3,6 +3,11 @@
 
 using namespace std;
 
+/**
+* @class: Classe ASG
+* @brief Arquivo CPP da classe ASG
+*/
+
 Asg::Asg(){}
 Asg::Asg(float adicionalInsalubridade){
     this->adicionalInsalubridade = adicionalInsalubridade;
@@ -17,6 +22,13 @@ void Asg::setInsalubridade(float){
   this->adicionalInsalubridade = adicionalInsalubridade;
 }
 
+/**
+* @fn: Função calcularSalario na Classe ASG
+* @brief Calcula os salários dos ASG
+* @param Recebe a quantidade de faltas
+* return Retorna o salário
+*/
+
 float Asg::calcularSalario(int diasFaltas){
 
   float salarioDia = getSalario()/30;
@@ -26,6 +38,13 @@ float Asg::calcularSalario(int diasFaltas){
   sal = sal + (getQtdFilhos()*100) - (salarioDia*diasFaltas);
   return sal;
 }
+
+/**
+* @fn: Função calcularRecisao na Classe ASG
+* @brief Calcula as recisões dos ASG
+* @param Recebe a data do desligamento do ASG
+* return Retorna o valor da recisão dos ASGs
+*/
 
 float Asg::calcularRecisao(Data desligamento){
 

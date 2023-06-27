@@ -3,12 +3,17 @@
 
 using namespace std;
 
-  float Funcionario::getSalario(){
+/**
+* @class: Classe Funcionario
+* @brief Arquivo CPP da classe Funcionario
+*/
+
+float Funcionario::getSalario(){
     return this->salario;
   }
 void Funcionario::setSalario(float salario){ 
     this->salario = salario; 
-}
+  }
 
   string Funcionario::getMatricula(){
     return this->matricula;

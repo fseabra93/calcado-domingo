@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/**
+* @class: Classe Empresa
+* @brief Arquivo CPP da classe Empresa
+*/
+
   Empresa::Empresa(){}
   Empresa::Empresa(string nomeEmpresa, float faturamentoMensal, string cnpj){
     this->faturamentoMensal = faturamentoMensal;
@@ -42,26 +47,18 @@ using namespace std;
     return asgs;
   }
 
-  /*void Empresa::setAsgs(vector<Asg>asgs){
-    this->asgs=asgs;
-  }*/
-
   vector<Vendedor> Empresa::getVendedores(){
     return vendedores;
   }
-
-  /*void Empresa::setVendedores(vector<Vendedor>vendedores){
-    this->vendedores=vendedores;
-  }*/
 
   vector<Gerente> Empresa::getGerentes(){
     return gerentes;
   }
 
- /* void Empresa::setGerentes(vector<Gerente>gerentes){
-    this->gerentes=gerentes;
-  }*/
-  
+/**
+* @fn: Função carregaFuncoes na Classe Empresa
+* @brief Carrega as funções lidas no arquivo funcoes.txt
+*/
 
 void Empresa::carregaFuncoes(){
     string linha;
@@ -139,7 +136,10 @@ void Empresa::carregaFuncoes(){
         }
 }
 
-float custo[] = {0,0};
+/**
+* @fn: Função carregarEmpresa na Classe Empresa
+* @brief Carrega os dados da empresa lidas a partir do arquivo empresa.txt
+*/
 
 void Empresa::carregarEmpresa(){
   
@@ -177,6 +177,10 @@ void Empresa::carregarEmpresa(){
 
 }
 
+/**
+* @fn: Função carregarAsg na Classe Empresa
+* @brief Carrega os dados dos ASGs lidos a partir do arquivo asg.txt
+*/
 
 void Empresa::carregarAsg(){
   string linha;
@@ -236,6 +240,11 @@ void Empresa::carregarAsg(){
 
 }
 
+/**
+* @fn: Função imprimeAsgs na Classe Empresa
+* @brief Imprime os dados dos ASGs no console e no arquivo relatorio_final.txt
+*/
+
 void Empresa::imprimeAsgs(){
 
   fstream arquivo;
@@ -281,35 +290,14 @@ void Empresa::imprimeAsgs(){
 
   arquivo.close();
 
-    float somaSalarioAsg = 0;
-
-    arquivo.open("relatorio_financeiro.txt", ios::out | ios::app);
-
-  arquivo << "\n######### Relatório Financeiro ########\n\nCargo: ASG\n" << endl;
-      for (int i = 0; i < asgs.size(); i++) {
-        float sal = calculaSalarioIndividual(asgs[i].getMatricula());
-        arquivo << asgs[i].getMatricula() << " - " << asgs[i].getNome() << " - R$ " << sal << endl;
-        cout << asgs[i].getMatricula() << " - " << asgs[i].getNome() << " - R$ " << sal << endl;
-
-        somaSalarioAsg += sal;    
-    }
-    
-    arquivo << "Total ASG: R$ " << somaSalarioAsg << endl;
-    cout << "Total ASG: R$ " << somaSalarioAsg << endl;  
-    arquivo << endl;
-    cout << endl;
-        arquivo << "*****************************************" <<endl;
-      cout << "*****************************************" <<endl;
-
-    custo[0] = somaSalarioAsg;
-
-      arquivo << "____________________________________________________________" <<endl;
-      cout << "____________________________________________________________" <<endl;
-
-  arquivo.close();
+   //////////////////////////////////////////////////////////////////////
 
 }
 
+/**
+* @fn: Função carregarVendedor na Classe Empresa
+* @brief Carrega os dados dos Vendedores lidos a partir do arquivo vendedor.txt
+*/
 
 void Empresa::carregarVendedor(){
   string linha;
@@ -370,6 +358,11 @@ void Empresa::carregarVendedor(){
     
 }
 
+/**
+* @fn: Função imprimeVendedores na Classe Empresa
+* @brief Imprime os dados dos Vendedores no console e no arquivo relatorio_final.txt
+*/
+
 void Empresa::imprimeVendedores(){
 
   fstream arquivo;
@@ -415,32 +408,13 @@ void Empresa::imprimeVendedores(){
     }
 
   arquivo.close();
-
-  float somaSalarioVend = 0;
-
-    arquivo.open("relatorio_financeiro.txt", ios::out | ios::app);
-
-  arquivo << "Cargo: Vendedor\n" << endl;
-      for (int i = 0; i < vendedores.size(); i++) {
-        float sal = calculaSalarioIndividual(vendedores[i].getMatricula());
-        arquivo << vendedores[i].getMatricula() << " - " << vendedores[i].getNome() << " - R$ " << sal << endl;
-        cout << vendedores[i].getMatricula() << " - " << vendedores[i].getNome() << " - R$ " << sal << endl;
-        somaSalarioVend += sal;    
-    }
-    
-    arquivo << "Total Vendedores: R$ " << somaSalarioVend << endl;
-    cout << "Total Vendedores: R$ " << somaSalarioVend << endl;  
-    arquivo << endl;
-    cout << endl;
-
-  custo[1] = somaSalarioVend;
-
-  arquivo << "____________________________________________________________" <<endl;
-  cout << "____________________________________________________________" <<endl;
-
-  arquivo.close();
   
 }
+
+/**
+* @fn: Função carregarGerente na Classe Empresa
+* @brief Carrega os dados dos Gerentes lidos a partir do arquivo gerente.txt
+*/
 
 void Empresa::carregarGerente(){
   string linha;
@@ -498,6 +472,11 @@ void Empresa::carregarGerente(){
 
 }
 
+/**
+* @fn: Função imprimeGerentes na Classe Empresa
+* @brief Imprime os dados dos Gerentes no console e no arquivo relatorio_final.txt
+*/
+
 void Empresa::imprimeGerentes(){
 
   fstream arquivo;
@@ -547,69 +526,12 @@ void Empresa::imprimeGerentes(){
 
   arquivo.close();
 
-   float somaSalarioGerente = 0;
-
-    arquivo.open("relatorio_financeiro.txt", ios::out | ios::app);
-
-  arquivo << "\nCargo: Gerente\n" << endl;
-      for (int i = 0; i < gerentes.size(); i++) {
-        float sal = gerentes[i].calcularSalario(gerentes[i].getFaltas());
-        //sal = sal + gerentes[i].getParticipacaoLucros();
-        arquivo << gerentes[i].getMatricula() << " - " << gerentes[i].getNome() << " - R$ " << sal << endl;
-        cout << gerentes[i].getMatricula() << " - " << gerentes[i].getNome() << " - R$ " << sal << endl;
-
-        somaSalarioGerente += sal;    
-    }
-    
-    arquivo << "Total Gerente: R$ " << somaSalarioGerente << endl;
-    cout << "Total Gerente: R$ " << somaSalarioGerente << endl;  
-    arquivo << endl;
-  arquivo << "____________________________________________________________" <<endl;
-  cout << "____________________________________________________________" <<endl;
-
-  float custo_total = somaSalarioGerente+custo[0]+custo[1];
-  float faturamento = getFaturamentoMensal();
-
-  arquivo << "*****************************************" <<endl;
-  cout << "*****************************************" <<endl;
-  arquivo << "\nCUSTO TOTAL: R$ " << custo_total << endl;
-  cout << "\nCUSTO TOTAL: R$ " << custo_total << endl;
-
-  arquivo << "\nFATURAMENTO MENSAL: R$ " << faturamento << endl;
-  cout << "\nFATURAMENTO MENSAL: R$ " << faturamento << endl;
-
-  arquivo << "\nCusto ASG(%): " << fixed << setprecision(2) << (custo[0]/custo_total)*100 << "%" << endl;
-  arquivo << "Custo Vendedores(%): " << fixed << setprecision(2) << (custo[1]/custo_total)*100 << "%" << endl;
-  arquivo << "Custo Gerente(%): " << fixed << setprecision(2) << (somaSalarioGerente/custo_total)*100 << "%" << endl;
-
-  cout << "\nCusto ASG(%): " << fixed << setprecision(2) << (custo[0]/custo_total)*100 << "%" << endl;
-  cout << "Custo Vendedores(%): " << fixed << setprecision(2) << (custo[1]/custo_total)*100 << "%" << endl;
-  cout << "Custo Gerente(%): " << fixed << setprecision(2) << (somaSalarioGerente/custo_total)*100 << "%" << endl;
-
-  arquivo << "\nLUCRO DA EMPRESA: R$ "<< fixed << setprecision(2) << faturamento-custo_total << endl;
-  cout << "\nLUCRO DA EMPRESA: R$ "<< fixed << setprecision(2) << faturamento-custo_total << endl;
-
-  
-
-  if (faturamento>custo_total){
-    arquivo << "SITUAÇÃO: Lucro" << endl;
-    cout << "SITUAÇÃO: Lucro" << endl;
-  } else if (faturamento<custo_total){
-    arquivo << "SITUAÇÃO: Prejuízo" << endl;
-    cout << "SITUAÇÃO: Prejuízo" << endl;
-  } else {
-    arquivo << "SITUAÇÃO: Não houve lucro nem prejuízo" << endl;
-    cout << "SITUAÇÃO: Não houve lucro nem prejuízo" << endl;
-  }
-
-  arquivo << "*****************************************" <<endl;
-  cout << "*****************************************" <<endl;
-
-  arquivo.close();
-
-  
 }
 
+/**
+* @fn: Função carregaDono na Classe Empresa
+* @brief Carrega os dados do dono da empresa lidos a partir do arquivo dono.txt
+*/
 
 void Empresa::carregaDono(){
   string linha;
@@ -654,6 +576,11 @@ void Empresa::carregaDono(){
 
 }
 
+/**
+* @fn: Função imprimeDono na Classe Empresa
+* @brief Imprime os dados do dono da empresa no console e no arquivo relatorio_final.txt
+*/
+
 void Empresa::imprimeDono(){
   fstream arquivo;
   arquivo.open("relatorio_final.txt", ios::out | ios::app);
@@ -673,6 +600,13 @@ cout << "Nome: "<< getDono()->getNome() << "\nCPF: " <<getDono()->getCpf() << "\
   cout << "****************************************" << endl;
     
 }
+
+/**
+* @fn: Função buscaFuncionario na Classe Empresa
+* @brief Busca funcionários a partir do número da matrícula
+* @param Recebe a matrícula de um funcionário
+* @return Retorna os dados de um funcionário
+*/
 
 void Empresa::buscaFuncionario(string matricula){
     int encontrado = 0;
@@ -731,6 +665,13 @@ void Empresa::buscaFuncionario(string matricula){
   arquivo.close();
 }
 
+/**
+* @fn: Função calculaSalarioFuncionario na Classe Empresa
+* @brief Calcula o salário de funcionários a partir do número da matrícula
+* @param Recebe a matrícula de um funcionário
+* @return Retorna o salário do funcionário
+*/
+
 void Empresa::calculaSalarioFuncionario(string matricula){
     int encontrado = 0;
   
@@ -788,6 +729,13 @@ void Empresa::calculaSalarioFuncionario(string matricula){
   arquivo.close();
 }
 
+/**
+* @fn: Função calculaSalarioIndividual na Classe Empresa
+* @brief Calcula o salário de funcionários a partir do número da matrícula
+* @param Recebe a matrícula de um funcionário
+* @return Retorna o salário do funcionário
+*/
+
 float Empresa::calculaSalarioIndividual(string matricula){
 
         for(int i = 0; i<asgs.size() ;i++){
@@ -806,6 +754,11 @@ float Empresa::calculaSalarioIndividual(string matricula){
             }
         }
 }
+
+/**
+* @fn: Função calculaTodoOsSalarios na Classe Empresa
+* @brief Calcula a soma dos salários por categoria e imprime no console e no arquivo relatorioFinanceiro.txt
+*/
 
 void Empresa::calculaTodoOsSalarios(){
 
@@ -888,9 +841,14 @@ void Empresa::calculaTodoOsSalarios(){
     cout << "Não houve lucro nem prejuízo no mês"<< endl;
   }
 
-    
-
 }
+
+/**
+* @fn: Função calcularRecisao na Classe Empresa
+* @brief Calcula a recisão
+* @param Recebe a matrícula de um funcionário e a data do desligamento do funcionário
+* @return Retorna o valor da recisão
+*/
 
 float Empresa::calcularRecisao(string matricula, Data desligamento){
     //cout << "\n##########    Calculando a rescisão de funcionário    ##########" <<endl;
@@ -923,6 +881,12 @@ float Empresa::calcularRecisao(string matricula, Data desligamento){
     }
     //cout  << "Funcionario não localizado no sistema!" << endl;
 }
+
+/**
+* @fn: Função demitirFuncionario na Classe Empresa
+* @brief Realiza a demissão de um funcionário. Imprime o relatório demissional no console e no arquivo relatorioDemissional.txt. Chama a função removerFuncionario()
+* @param Recebe a matrícula de um funcionário e a data do desligamento do funcionário
+*/
 
 void Empresa::demitirFuncionario(string matricula, Data desligamento){
   
@@ -1047,6 +1011,12 @@ void Empresa::demitirFuncionario(string matricula, Data desligamento){
 
 ////////////////////////////////////////////////////////////////////////////
 
+/**
+* @fn: Função removerFuncionario na Classe Empresa
+* @brief Remove o funcionário do arquivo original asg.txt, vendedor.txt ou gerente.txt
+* @param Recebe o nome e o cargo de um funcionário gerados na função demitirFuncionario()
+*/
+
 void Empresa::removerFuncionario(string nome, string cargo){
 
   if (cargo == "asg"){
@@ -1098,33 +1068,16 @@ void Empresa::removerFuncionario(string nome, string cargo){
      fstream arquivo;
      arquivo.open("gerente.txt", ios::out);
      arquivo.close();
-    /*
-    string linha;
-     vector<string>vetor_ger;
-     fstream arquivo;
-     arquivo.open("gerente.txt", ios::in);
-     while(getline(arquivo, linha)){
-        if (linha[0] != '#' && linha[0] != '*' && linha[1] != 'E' && linha[2] != 'R' ){
-          //cout << linha << endl;
-          vetor_ger.push_back(linha);
-        }
-     }
-     arquivo.close();
-   //  arquivo.open("gerente.txt", ios::trunc);
-   //  arquivo.close();
-     arquivo.open("gerente.txt", ios::out);
-     for (int i = 0; i<vetor_ger.size(); i++) {
-            if (vetor_ger[i]  != nome){
-              arquivo << vetor_ger[i] << endl;
-            } else {
-              i = i+__;
-            }
-     }
-     arquivo.close();*/
+    
 
    }
   
 }
+
+/**
+* @fn: Função contratarFuncionario na Classe Empresa
+* @brief Insere um funcionário lido do arquivo novoFuncionario.txt no arquivo original asg.txt, vendedor.txt ou gerente.txt
+*/
 
 void Empresa::contratarFuncionario(){
 

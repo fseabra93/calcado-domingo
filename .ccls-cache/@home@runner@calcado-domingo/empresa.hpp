@@ -8,6 +8,11 @@
 
 using namespace std;
 
+/**
+* @class: Classe Empresa
+* @brief Arquivo HPP da classe Empresa
+*/
+
 class Empresa {
 
   string nomeEmpresa;

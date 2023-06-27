@@ -5,6 +5,11 @@
 
 using namespace std;
 
+/**
+* @class: Classe Funcionario
+* @brief Arquivo HPP da classe Funcionario
+*/
+
 class Funcionario{
   string matricula;
   float salario;

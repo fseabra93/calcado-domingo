@@ -4,6 +4,11 @@
 #include "pessoa.hpp"
 #include "funcionario.hpp"
 
+/**
+* @class: Classe ASG
+* @brief Arquivo HPP da classe ASG
+*/
+
 using namespace std;
 
 class Asg : public Pessoa, public Funcionario{

@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/**
+* @class: Classe Gerente
+* @brief Arquivo HPP da classe Gerente
+*/
+
 class Gerente : public Pessoa, public Funcionario{
 
   float participacaoLucros;

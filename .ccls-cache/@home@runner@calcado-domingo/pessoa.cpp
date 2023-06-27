@@ -3,6 +3,11 @@
 
 using namespace std;
 
+/**
+* @class: Classe Pessoa
+* @brief Arquivo CPP da classe Pessoa
+*/
+
 Pessoa :: Pessoa(){}
 
 Pessoa :: Pessoa(string nome, string cpf, Data dataNascimento, Endereco enderecoPessoal, string estadoCivil, int qtdFilhos){

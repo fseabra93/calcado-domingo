@@ -5,6 +5,11 @@
 
 using namespace std;
 
+/**
+* @class: Classe Pessoa
+* @brief Arquivo HPP da classe Pessoa
+*/
+
 class Pessoa{
     protected:
     string nome;

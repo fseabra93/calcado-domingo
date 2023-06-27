@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/**
+* @class: Classe Vendedor
+* @brief Arquivo HPP da classe Vendedor
+*/
+
 class Vendedor : public Pessoa, public Funcionario{
 
   char tipoVendedor;
