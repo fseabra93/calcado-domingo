@@ -1,5 +1,6 @@
 #ifndef PESSOA_HPP
 #define PESSOA_HPP
+#include <iostream>
 #include "util.hpp"
 
 using namespace std;
@@ -11,20 +12,20 @@ class Pessoa{
     Data dataNascimento;
     Endereco enderecoPessoal;
     string estadoCivil;
-    int qtdFilhos = 0;
+    int qtdFilhos;
 
     public:
     Pessoa();
-    Pessoa(string nome, string cpf, int ano_nasc, int mes_nasc, int dia_nasc, string cidade, string bairro, string rua, string cep, int numero, string estadoCivil, int qtdFilhos);
+    Pessoa(string nome, string cpf, Data dataNascimento, Endereco enderecoPessoal, string estadoCivil, int qtdFilhos);
     
     string getNome();
     void setNome(string nome);
     string getCpf();
     void setCpf(string cpf);
     Data getDataNascimento();
-    void setDataNascimento(int ano_nasc, int mes_nasc, int dia_nasc);
+    void setDataNascimento(Data dataNascimento);
     Endereco getEnderecoPessoal();
-    void setEnderecoPessoal(string cidade, string bairro, string rua, string cep, int numero);
+    void setEnderecoPessoal(Endereco enderecoPessoal);
     string getEstadoCivil();
     void setEstadoCivil(string estadoCivil);
     int getQtdFilhos();

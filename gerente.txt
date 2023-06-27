@@ -19,6 +19,7 @@ Dr. Antonio Souza
 72.412-3
 1500
 1500
+0
 ***** Data de ingresso (ano, mes, dia) ****
 2015
 6

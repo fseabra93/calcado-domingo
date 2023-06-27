@@ -1,5 +1,6 @@
 #ifndef EMPRESA_HPP
 #define EMPRESA_HPP
+#include <iostream>
 #include <vector>
 #include "asg.hpp"
 #include "vendedor.hpp"
@@ -7,36 +8,31 @@
 
 using namespace std;
 
-class Empresa : public Pessoa, Funcionario {
+class Empresa {
 
   string nomeEmpresa;
   string cnpj;
   float faturamentoMensal;
-  Pessoa dono;
+  Pessoa *Dono = new Pessoa();
   vector<Asg>asgs;
   vector<Vendedor>vendedores;
   vector<Gerente>gerentes;
-  Data hoje;
 
 
   public:
   Empresa();
-  Empresa(string nomeEmpresa, string cnpj, float faturamentoMensal, string nome_dono, vector<Asg>asgs, vector<Vendedor>vendedores, vector<Gerente>gerentes, int h_ano, int h_mes, int h_dia);
+  Empresa(string nomeEmpresa, float faturamentoMensal, string cnpj);
 
-  Data getHoje();
-  void setHoje(int h_ano, int h_mes, int h_dia);
+  float getFaturamentoMensal();
+  void setFaturamentoMensal(float faturamentoMensal);
 
-  float getFaturamento();
-  void setFaturamento(float faturamentoMensal);
+  string getNomeEmpresa();
+  void setNomeEmpresa(string nomeEmpresa);
 
-  std::string getNomeEmpresa();
-  void setNomeEmpresa(std::string nomeEmpresa);
+  string getCnpj();
+  void setCnpj(string cnpj);
 
-  std::string getCnpj();
-  void setCnpj(std::string cnpj);
-
-  Pessoa getDono();
-  void setDono(string nome_dono, string cpf_dono, int n_filhos_dono, string est_civ_dono, string cidade_dono, string cep_dono, string bairro_dono, string rua_dono, int n_casa_dono, int ano_nasc_dono, int mes_nsac_dono, int dia_nasc_dono);
+  Pessoa *getDono();
 
   vector<Asg> getAsgs();
   void setAsgs(vector<Asg>asgs);
@@ -52,14 +48,19 @@ class Empresa : public Pessoa, Funcionario {
   void carregarGerente();
   void carregaDono();
   void imprimeAsgs();
-  void imprimeDono(Pessoa p);
+  void imprimeDono();
   void imprimeVendedores();
   void imprimeGerentes();
+  float calculaSalarioIndividual(string matricula);
 
-  //buscaFuncionario(int matricula);
-  //calculaSalarioFuncionario(int matricula);
-  //calculaTodoOsSalarios();
-  //calcularRecisao(int matricula, Data desligamento);
+  void buscaFuncionario(string matricula);
+  void calculaSalarioFuncionario(string matricula);
+  void calculaTodoOsSalarios();
+  float calcularRecisao(string matricula, Data desligamento);
+
+  void demitirFuncionario(string matricula, Data desligamento);
+  void contratarFuncionario();
+  void removerFuncionario(string nome, string cargo);
 
 
 };

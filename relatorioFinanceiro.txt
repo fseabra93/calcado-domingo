@@ -1,0 +1,34 @@
+##########    Relatório Financeiro    ##########
+
+
+##########    ASGS    ##########
+Nome: Pedro de Araujo - R$ 1232
+Nome: Jorge Linhares - R$ 1520
+Nome: Antonio Augusto de Souza Filho - R$ 1288
+Soma ASGs: 4040
+
+##########    Vendedores    ##########
+Nome: Luiz de Souza - R$ 1825
+Nome: Suziane Maria - R$ 2012.5
+Nome: Alexandra Gonçalve Dias - R$ 1517.5
+Nome: Guilherme Borba Dias - R$ 1875
+Nome: Paulo Herculano de Souza - R$ 1750
+Soma Vendedores: 8980
+
+##########    Gerentes    ##########
+Nome: Gustavo Luiz de Souza - R$ 3100
+Soma Gerentes: 3100.00
+
+**************************** 
+CUSTO TOTAL: 16120.00
+**************************** 
+
+FATURAMENTO MENSAL: 156290.00
+
+Custo ASG(%): 25.06%
+Custo Vendedores(%): 55.71%
+Custo Gerente(%): 19.23%
+
+Lucro da empresa: R$140170.00
+
+SITUAÇÃO: Lucro

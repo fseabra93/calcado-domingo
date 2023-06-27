@@ -5,73 +5,62 @@ using namespace std;
 
 Pessoa :: Pessoa(){}
 
-Pessoa :: Pessoa(string nome, string cpf, int ano_nasc, int mes_nasc, int dia_nasc, string cidade, string bairro, string rua, string cep, int numero, string estadoCivil, int qtdFilhos ){
+Pessoa :: Pessoa(string nome, string cpf, Data dataNascimento, Endereco enderecoPessoal, string estadoCivil, int qtdFilhos){
   this->nome = nome;
   this->cpf=cpf;
-  dataNascimento.ano = ano_nasc;
-  dataNascimento.mes = mes_nasc;
-  dataNascimento.dia = dia_nasc;
-  enderecoPessoal.cidade = cidade;
-  enderecoPessoal.bairro = bairro;
-  enderecoPessoal.rua = rua;
-  enderecoPessoal.cep = cep;
-  enderecoPessoal.numero = numero;
   this->estadoCivil = estadoCivil;
   this->qtdFilhos=qtdFilhos;
+  this->enderecoPessoal = enderecoPessoal;
+  this->dataNascimento = dataNascimento;
+
   
 }
 
-string Pessoa :: getNome(){
+string Pessoa::getNome(){
   return this->nome;
 }
 
-void Pessoa :: setNome(string nome){
+void Pessoa::setNome(string nome){
   this->nome = nome;
 }
 
-std::string Pessoa :: getCpf(){
+std::string Pessoa::getCpf(){
   return this->cpf;
 }
 
-void Pessoa :: setCpf(string cpf){
+void Pessoa::setCpf(string cpf){
   this->cpf = cpf;
 }
 
-Data Pessoa:: getDataNascimento(){
+Data Pessoa::getDataNascimento(){
   return this-> dataNascimento;
 }
 
-void Pessoa:: setDataNascimento(int ano_nasc, int mes_nasc, int dia_nasc){
-  dataNascimento.ano = ano_nasc;
-  dataNascimento.mes = mes_nasc;
-  dataNascimento.dia = dia_nasc;
+void Pessoa::setDataNascimento(Data dataNascimento){
+    this->dataNascimento = dataNascimento;
 }
 
-Endereco Pessoa:: getEnderecoPessoal(){
+Endereco Pessoa::getEnderecoPessoal(){
   return this-> enderecoPessoal;
 }
 
-void Pessoa:: setEnderecoPessoal(string cidade, string bairro, string rua, string cep, int numero){
-  enderecoPessoal.cidade = cidade;
-  enderecoPessoal.bairro = bairro;
-  enderecoPessoal.rua = rua;
-  enderecoPessoal.cep = cep;
-  enderecoPessoal.numero = numero;
+void Pessoa::setEnderecoPessoal(Endereco enderecoPessoal){
+  this->enderecoPessoal = enderecoPessoal;
 }
 
-string Pessoa :: getEstadoCivil(){
+string Pessoa::getEstadoCivil(){
   return this->estadoCivil;
 }
 
-void Pessoa :: setEstadoCivil(string estadoCivil){
+void Pessoa::setEstadoCivil(string estadoCivil){
   this->estadoCivil = estadoCivil;
 }
 
-int Pessoa :: getQtdFilhos(){
+int Pessoa::getQtdFilhos(){
   return this->qtdFilhos;
 }
 
-void Pessoa :: setQtdFilhos(int qtdFilhos){
+void Pessoa::setQtdFilhos(int qtdFilhos){
   this->qtdFilhos = qtdFilhos;
 }
 

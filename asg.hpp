@@ -1,27 +1,24 @@
 #ifndef ASG_HPP
 #define ASG_HPP
+#include <iostream>
 #include "pessoa.hpp"
 #include "funcionario.hpp"
 
 using namespace std;
 
-class Asg : public Pessoa, Funcionario{
+class Asg : public Pessoa, public Funcionario{
 
-  Pessoa pessoa;
-  float adicionalInsalubridade = 1.05;
+  float adicionalInsalubridade;
 
   public:
   Asg();
-  Asg(Pessoa pessoa, string matricula, float salario, float adicionalInsalubridade, int ano_ingr, int mes_ingr, int dia_ingr);
-
-  Pessoa getPessoa();
-  void setPessoa(Pessoa pessoa);
+  Asg(float adicionalInsalubridade);
   
   float getInsalubridade();
-  void setInsalubridade(float adicionalInsalubridade);
+  void setInsalubridade(float);
 
-  void calcularSalario();
-  void calcularRecisao();
+  float calcularSalario(int diasFaltas);
+  float calcularRecisao(Data desligamento);
 
 };
 

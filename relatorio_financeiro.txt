@@ -1,0 +1,42 @@
+
+######### Relatório Financeiro ########
+
+Cargo: ASG
+
+72.385-9 - Pedro de Araujo - R$ 1232
+72.102-0 - Jorge Linhares - R$ 1520
+72.280-8 - Antonio Augusto de Souza Filho - R$ 1288
+Total ASG: R$ 4040
+
+*****************************************
+____________________________________________________________
+Cargo: Vendedor
+
+72.412-3 - Luiz de Souza - R$ 1825
+72.123-7 - Suziane Maria - R$ 2012.5
+72.874-1 - Alexandra Gonçalve Dias - R$ 1517.5
+72.125-6 - Guilherme Borba Dias - R$ 1875
+72.254-6 - Paulo Herculano de Souza - R$ 1750
+Total Vendedores: R$ 8980
+
+____________________________________________________________
+
+Cargo: Gerente
+
+72.412-3 - Gustavo Luiz de Souza - R$ 3100
+Total Gerente: R$ 3100
+
+____________________________________________________________
+*****************************************
+
+CUSTO TOTAL: R$ 16120
+
+FATURAMENTO MENSAL: R$ 156290
+
+Custo ASG(%): 25.06%
+Custo Vendedores(%): 55.71%
+Custo Gerente(%): 19.23%
+
+LUCRO DA EMPRESA: R$ 140170.00
+SITUAÇÃO: Lucro
+*****************************************

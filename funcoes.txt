@@ -8,12 +8,13 @@ imprimeVendedores()
 imprimeGerentes()
 imprimeDono()
 buscaFuncionario()
-matricula
+72.412-3
 calculaSalarioFuncionario()
-matricula
+72.254-6
 calculaTodoOsSalarios()
-calcularRecisao()
-mstricula
+demitirFuncionario()
+72.102-0
 ano
 mes
 dia
+contratarFuncionario()

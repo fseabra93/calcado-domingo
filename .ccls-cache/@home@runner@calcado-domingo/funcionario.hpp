@@ -1,36 +1,32 @@
 #ifndef FUNCIONARIO_HPP
 #define FUNCIONARIO_HPP
+#include <iostream>
 #include "util.hpp"
 
 using namespace std;
 
 class Funcionario{
-
-protected:
-  float salario;
   string matricula;
+  float salario;
   Data ingressoEmpresa;
-  Data desligamento; // ver se será definida em outro lugar
-  int diasFaltas = 0; // ver se será definida em outro lugar
-  virtual void calcularSalario() = 0;
-  virtual void calcularRecisao() = 0;
+  Data desligamento; // não tem no do professor
+  int diasFaltas;
+
 
 
   public:
-  Funcionario();
-  Funcionario(float salario, string matricula, int ano_ingr, int mes_ingr, int dia_ingr, int ano_demiss, int mes_demiss, int dia_demiss, int diasFaltas);
-
   float getSalario();
-  void setSalario(int diasFaltas);
+  void setSalario(float salario);
   string getMatricula();
   void setMatricula(string matricula);
   Data getIngressoEmpresa();
-  void setIngressoEmpresa(int ano_ingr, int mes_ingr, int dia_ingr);
-  Data getDataDemissao();
-  void setDataDemissao(int ano_demiss, int mes_demiss, int dia_demiss);
+  void setIngressoEmpresa(Data ingressoEmpresa);
+  Data getDataDesligamento(); // não tem no do professor
+  void setDataDesligamento(Data desligamento); // não tem no do professor
   int getFaltas();
   void setFaltas(int diasFaltas);
-
+  virtual float calcularSalario(int diasFaltas) = 0;
+  virtual float calcularRecisao(Data desligamento) = 0;
 
 };
 

@@ -1,28 +1,24 @@
 #ifndef VENDEDOR_HPP
 #define VENDEDOR_HPP
-
+#include <iostream>
 #include "pessoa.hpp"
 #include "funcionario.hpp"
 
 using namespace std;
 
-class Vendedor : public Pessoa, Funcionario{
+class Vendedor : public Pessoa, public Funcionario{
 
-  Pessoa pessoa;
   char tipoVendedor;
 
   public:
     Vendedor();
-    Vendedor(Pessoa pessoa, string matricula, float salario, char tipoVendedor, int ano_ingr, int mes_ingr, int dia_ingr);
-
-  Pessoa getPessoa();
-  void setPessoa(Pessoa pessoa);
+    Vendedor(char tipoVendedor);
 
   char getTipo();
   void setTipo(char tipoVendedor);
 
-  void calcularSalario();
-  void calcularRecisao();
+  float calcularSalario(int diasFaltas);
+  float calcularRecisao(Data desligamento);
 
 };
 

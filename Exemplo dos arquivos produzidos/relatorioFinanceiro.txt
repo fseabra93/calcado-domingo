@@ -17,4 +17,14 @@ Cargo: Gerente
 72.345.02 - Gustavo Bulhões Cunha - R$ 3023.76
 Total Vendedor:: 3023.76
 
-CUSTO TOTAL DE RH: R$ 14,802.18
+CUSTO TOTAL: R$ 14,802.18
+
+FATURAMENTO MENSAL: 20,957.15
+
+Custo ASG(%): 20.20%
+Custo Vendedor(%): 59.37%
+Custo GErente(%): 20,42%
+
+LUCRO DA EMPRESA: 6154.97
+
+SITUAÇÃO: Lucro
